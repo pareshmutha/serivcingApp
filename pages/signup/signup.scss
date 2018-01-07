@@ -1,0 +1,28 @@
+page-signup {
+	.signupcontainer{
+		}
+	.toolbar-background-md{
+		background-color:#0bd192;
+		color:#fff;
+		
+	}
+	.toolbar-title-md{
+		color:#fff;
+		margin-right: 16%;
+	}
+	.signupbtn{
+		background-color:#0bd192;
+		color:#fff;
+		border-radius:5px;
+		&.activated {
+	      background-color: #0bd192;
+	    }
+	}
+	.forgotpass{
+		color::#0bd192;
+		text-align: right;
+	    margin-right: 6px;
+	    margin-top: 15px;
+	}
+	
+}

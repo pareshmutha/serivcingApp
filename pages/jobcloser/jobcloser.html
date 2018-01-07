@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+      <ion-buttons left>
+          <button class="headerButtons" (click)="home()">
+             <ion-icon name="ios-home-outline"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title  align="center">{{ 'Job Closer' | translate }}</ion-title>
+    <ion-buttons right>
+          <button class="headerButtons">
+             <ion-icon name="ios-cart-outline"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+      <ion-item-sliding *ngFor="let job of jobcloserlist">
+        <ion-item >
+          <div class="statusicons"  *ngIf="job.isSupervised==='true'">
+            <h3 class="statusicon completed"><ion-icon name="md-checkmark-circle"></ion-icon><span>Supervised</span></h3>
+            <button class="generatebillbtn">Generate Bill</button>
+          </div>
+          <div class="statusicons"  *ngIf="job.isSupervised==='false'">
+            <h3 class="statusicon disbaled"><ion-icon name="md-checkmark-circle"></ion-icon><span>Supervised</span></h3>
+            <button class="generatebillbtn disbaledbtn">Generate Bill</button>
+          </div>
+          <h2 class="listheader">{{job.id}}</h2>
+          <h5><ion-icon name="ios-contact-outline" class="listicon"></ion-icon><span>{{job.name}}</span></h5>
+          <h5><ion-icon name="ios-home-outline" class="listicon"></ion-icon><span>{{job.address}}</span></h5>
+          <h5><ion-icon name="ios-phone-portrait-outline" class="listicon"></ion-icon><span>{{job.mobilenumber}}</span></h5>
+          <h5><ion-icon name="ios-bicycle" class="listicon"></ion-icon><span>{{job.vehicle}}</span></h5>
+        </ion-item>
+         <ion-item-options side="right">
+            <button ion-button class="slideeditbtn">
+              <ion-icon name="md-create"></ion-icon>
+              Edit
+            </button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

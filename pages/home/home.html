@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-title align="center">{{ 'Home' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="homeContainer">
+  <div class="homebg"></div>
+  <div class="homeBtnContainer">
+    <button ion-item class="homeBtn homeRightBtn" (click)="routeToPage('Jobcloser')" id="jobStatus">
+          <ion-icon name="ios-list-box" class="homeBtnIcon"></ion-icon>
+          <div class="homeBtnTxt">{{ 'Job Closure' | translate }}</div>
+      </button>
+      <button ion-item class="homeBtn homeLeftBtn" (click)="routeToPage('Addnewjob')" id="addNewJob">
+          <ion-icon name="ios-add-circle" class="homeBtnIcon"></ion-icon>
+          <div class="homeBtnTxt">{{ 'Add New Job' | translate }}</div>
+      </button>
+      <button ion-item class="homeBtn homeRightBtn" id="addNewJob" (click)="routeToPage('Profile')" >
+          <ion-icon name="ios-contact" class="homeBtnIcon"></ion-icon>
+          <div class="homeBtnTxt">{{ 'Profile' | translate }}</div>
+      </button>
+      <button ion-item class="homeBtn homeLeftBtn" (click)="routeToPage('Services')" id="addNewJob">
+          <ion-icon name="ios-checkbox" class="homeBtnIcon"></ion-icon>
+          <div class="homeBtnTxt">{{ 'Services' | translate }}</div>
+      </button>
+       <button ion-item class="homeBtn homeRightBtn" id="addNewJob" (click)="routeToPage('Stats')" >
+          <ion-icon name="md-stats" class="homeBtnIcon"></ion-icon>
+          <div class="homeBtnTxt">{{ 'Stats' | translate }}</div>
+      </button>
+      <button ion-item class="homeBtn homeLeftBtn" id="addNewJob" (click)="routeToPage('VehicleHistory')">
+          <ion-icon name="md-bicycle" class="homeBtnIcon"></ion-icon>
+          <div class="homeBtnTxt">{{ 'Vehicle History' | translate }}</div>
+      </button>
+      
+  </div>
+</ion-content>

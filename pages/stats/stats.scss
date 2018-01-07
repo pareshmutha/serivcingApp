@@ -1,0 +1,22 @@
+page-stats {
+	.headerButtons{
+		    background: transparent;
+		    font-size: 18px;
+		    color: #fff;
+	}
+	.headerRow .col{
+		padding:9px;
+		color:#acacac;
+		text-align:center;
+	}
+	.headerRow .col.selected{
+		color:#fff;
+  		background:#0bd192;
+
+	}
+	.item{
+		text-align: center;
+    	margin-top: 0%;
+	}
+
+}

@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+      <ion-buttons left>
+          <button class="headerButtons" (click)="home()">
+             <ion-icon name="ios-home-outline"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title  align="center">{{ 'Vehicle History' | translate }}</ion-title>
+    <ion-buttons right>
+          <button class="headerButtons">
+             <ion-icon name="ios-cart-outline"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+     <button ion-button style="float: right" class="searchbtn"><ion-icon name="md-search"></ion-icon></button>
+     <ion-item class="vehicleheader">
+        <ion-input type="text" placeholder="Bike Number"></ion-input>
+        <ion-input type="text" placeholder="Date"></ion-input>
+      </ion-item>
+
+    <ion-list>
+        <ion-item *ngFor="let history of historylist">
+          <div class="statusicons">
+            <button class="generatebillbtn" (click)="showAlert()">View More</button>
+          </div>
+          <h5><ion-icon name="ios-contact-outline" class="listicon"></ion-icon><span>{{history.name}}</span></h5>
+          <h5><ion-icon name="ios-bicycle" class="listicon"></ion-icon><span>{{history.vehicle}}</span></h5>
+          <h5><ion-icon name="md-calendar" class="listicon"></ion-icon>Date:<span>{{history.date}}</span></h5>
+          <h5><ion-icon name="md-cog" class="listicon"></ion-icon><span>Services Done:</span></h5>
+          <h5><span>{{history.services}}</span></h5>
+
+        </ion-item>
+         
+  </ion-list>
+ 
+</ion-content>

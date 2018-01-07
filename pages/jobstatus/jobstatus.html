@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+      <ion-buttons left>
+          <button class="headerButtons" (click)="home()">
+             <ion-icon name="ios-home-outline"></ion-icon>
+          </button>
+      </ion-buttons>
+    <ion-title  align="center">{{ 'Job Status' | translate }}</ion-title>
+    <ion-buttons right>
+          <button class="headerButtons">
+             <ion-icon name="ios-cart-outline"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+      <ion-item *ngFor="let job of joblist">
+        <h2 class="listheader">{{job.id}}</h2>
+        <h2 class="statusicon completed" *ngIf="job.status==='completed'"><ion-icon name="md-checkmark-circle-outline"></ion-icon><div>Completed</div></h2>
+        <h2 class="statusicon pending" *ngIf="job.status==='pending'"><ion-icon name="ios-alert-outline"></ion-icon><div>Pending</div></h2>
+        <h5><ion-icon name="ios-contact-outline" class="listicon"></ion-icon><span>{{job.name}}</span></h5>
+        <h5><ion-icon name="ios-home-outline" class="listicon"></ion-icon><span>{{job.address}}</span></h5>
+        <h5><ion-icon name="ios-phone-portrait-outline" class="listicon"></ion-icon><span>{{job.mobilenumber}}</span></h5>
+        <h5><ion-icon name="ios-bicycle" class="listicon"></ion-icon><span>{{job.vehicle}}</span></h5>
+      </ion-item>
+  </ion-list>
+</ion-content>
