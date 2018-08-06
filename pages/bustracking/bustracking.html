@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="home()">
+        <ion-icon name="md-home"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title align="center">{{ 'Last Location' | translate }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="ios-log-out-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="homeContainer">
+  <div class="homebg" data="abc"></div>
+  <div class="remaningdistance">Remaining Distance:<span>{{distanceBetween}}</span>KM</div>
+  <div #map id="map"></div> 
+</ion-content>

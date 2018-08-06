@@ -1,70 +1,61 @@
 page-profile {
-	.profile-item {
-  		text-align: center;
-  		background:#0bd192;
-  		color:#fff;
-	}
-
-	.profile-picture {
-	  border: 1px solid rgba(0, 0, 0, 0.25);
-	  padding: 3px;
-	  border-radius: 100%;
-	  -webkit-box-sizing: content-box;
-	  -moz-box-sizing: content-box;
-	  box-sizing: content-box;
-	  margin: 0 auto;
-	  width: 128px;
-	  height: 128px;
-	  overflow: hidden;
-	  background: url('../assets/img/ian-avatar.png') no-repeat transparent;
-	  background-size:100% 100%;
+	.homeContainer{
+		position: absolute;
+	    height: 100%;
+	    width:100%;
+		background-color:rgb(236,236,236);
 
 	}
-
-	.profile-picture img {
-	  width: 128px;
-	  border-radius: 100%;
+	.senalogo{
+		background: url('../assets/img/sena_logo.png') no-repeat transparent;
+	    height: 75px;
+	    margin-top: 11%;
+	    margin-left: 25%;
 	}
-
-	.profile-name {
-	  padding-top: 20px;
-	  font-size: x-large !important;
-	  font-weight: bold !important;
-	  text-transform: capitalize;
+	.profileBtnContainer{
+		position: absolute;
+	    height: auto;
+	    width:100%;
+	    top:24%;
+	    padding:6%;
+	    overflow-x:hidden;
+	    overflow-y:auto;
 	}
-	.headerButtons{
-		    background: transparent;
-		    font-size: 18px;
-		    color: #fff;
+	.profileBtnContainer .pBtn{
+		text-align: center;
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+	    color:#333;
+	    border-radius: 5px;
+	    margin-top: 5%;
+    	background-color:#fff;
+    	font-weight:normal;
+    	&.activated {
+	      background-color: rgb(236,236,236);
+	      color:#000;
+	    }
 	}
-	.slideeditbtn{
-		background-color:rgb(8,200,171);
-		color:#fff;
+	.profileBtnContainer .pBtn span{
+		font-weight:normal;	
 	}
-	.slideeditbtn .icon{
-		font-size:25px;
+	.profileBtnContainer .button-md{
+		height:3.8rem;
 	}
-	.servicename{
-		width: 80%;
-    	display: inline-block;
-		color:#505050;
-    	
+	.profileBtn{
+		text-align: center;
+	    border-radius: 5px;
+	    color:#333;
+	    margin-top: 2%;
+   }
+	.profileBtnTxt{
+		margin-left:7%;
+		font-size:17px;
+		color:rgb(51,51,51);
 	}
-	.profileinputfields .label-md{
-		font-size:16px;
-
+	.label-md{
+		margin:0;
 	}
-	.profileinputfields .input-md{
-		font-size:18px;
-
+	.item-md.item-block .item-inner{
+		border:none;
 	}
-	.profileinputfields .text-input[disabled] {
-	     opacity: 1; 
-	}
-	.loginbtn{
-		background-color:#0bd192;
-		color:#fff;
-		border-radius:5px;
-		margin-top: 10%;
-	}
+	
 }

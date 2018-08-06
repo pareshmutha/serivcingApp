@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers/providers';
-import { MainPage } from '../pages';
+import { MainPage, Signup, Profile, VideoHistory } from '../pages';
 
 @IonicPage()
 @Component({
@@ -14,30 +14,75 @@ export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
   // sure to add it to the type
-  account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
-  };
-
+  
   // Our translated text strings
   private loginErrorString: string;
 
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService ) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
   }
-
+  signup() {
+      this.navCtrl.push(Signup);
+  }
   // Attempt to login in through our User service
-  doLogin() {
-    this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(MainPage);
+  doLogin(loginForm) {
+      //return;
+
+    // var obj = {
+    //       "Status": "SUCCESSFUL",
+    //       "UserID": 1,
+    //       "Students": [
+    //           {
+    //               "StudentName": "Student01",
+    //               "StudentID": "12345"
+    //           }
+    //       ],
+    //       "Banner": [
+    //           {
+    //               "BannerURL": "https://www.amazon.com/"
+    //           },
+    //           {
+    //               "BannerURL": "http://www.flipkart.com/"
+    //           }
+    //       ]
+    //   }
+    // this.user.setStudents(obj)
+    // this.navCtrl.push(MainPage);
+    
+    Object.keys(loginForm.value).forEach((key) => (loginForm.value[key] == null || loginForm.value[key] == "") && delete loginForm.value[key]);
+    if(Object.keys(loginForm.value).length != 2){
+      let toast = this.toastCtrl.create({
+        message: "Please fill all values.",
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+      return;
+    }
+    
+    this.user.login(loginForm.value).subscribe((resp) => {
+      if(resp['Status'] == 'FAILS'){
+        let toast = this.toastCtrl.create({
+        message: "Invalid login credentials.",
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+        return;
+      }
+      else{
+        this.user.setCurrentUserName(resp["Status"]);
+        this.user.setStudents(resp)
+        this.navCtrl.push(MainPage);  
+      }
+      
     }, (err) => {
-      this.navCtrl.push(MainPage);
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: this.loginErrorString,
